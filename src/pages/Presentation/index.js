@@ -45,8 +45,8 @@ function Presentation() {
             <MKTypography
               variant="h1"
               color="white"
-              mt={30}
-              mb={20}
+              mt={40}
+              mb={10}
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
                   fontSize: size["3xl"],
