@@ -551,7 +551,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
 
 // Setting default values for the props of DefaultNavbar
 DefaultNavbar.defaultProps = {
-  brand: "버스 혼잡율 예측 서비스",
+  brand: "편한 버스",
   transparent: false,
   light: false,
   action: false,
