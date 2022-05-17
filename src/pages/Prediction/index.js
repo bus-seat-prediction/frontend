@@ -1,4 +1,3 @@
-// @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
@@ -16,9 +15,30 @@ import routes from "routes";
 import bgImage from "assets/images/city-profile.jpg";
 
 import React from "react";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 
 function Prediction() {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get(
+          `http://localhost/prediction/7612/20220420/15`)
+            setData(response.data.result);
+            console.log(data);
+      } catch (e) {
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  if (loading) return <div>로딩중..</div>;
   return (
     <>
       <DefaultNavbar routes={routes} transparent light />
@@ -92,36 +112,33 @@ function Prediction() {
             </tr>
           </thead>
           <tbody>
+          {data.station_info_data && data.station_info_data.map((item) => {
+            if(item.complexity ==3) { 
+          return (
             <tr>
-              <th scope="row">세브란스병원</th>
-              <td>42</td>
-              <td class="table-danger">혼잡</td>
+              <td key={item.station}>{item.station}</td>
+              <td class="table-danger" key={item.station}>{item.int_pred}</td>
+              <td class="table-danger" key={item.station}>{item.complexity}</td>
             </tr>
-            <tr>
-              <th scope="row">신촌역</th>
-              <td>22</td>
-              <td class="table-warning">보통</td>
-            </tr>
-            <tr>
-              <th scope="row">연희동</th>
-              <td>25</td>
-              <td class="table-warning">보통</td>
-            </tr>
-            <tr>
-              <th scope="row">명지대</th>
-              <td>17</td>
-              <td class="table-success">여유</td>
-            </tr>
-            <tr>
-              <th scope="row">명지대후문</th>
-              <td>26</td>
-              <td class="table-warning">보통</td>
-            </tr>
-            <tr>
-              <th scope="row">홍제역</th>
-              <td>12</td>
-              <td class="table-success">여유</td>
-            </tr>
+          );}
+          else if (item.complexity ==2) { 
+            return (
+              <tr>
+                <td key={item.station}>{item.station}</td>
+                <td class="table-warning" key={item.station}>{item.int_pred}</td>
+                <td class="table-warning" key={item.station}>{item.complexity}</td>
+              </tr>
+            );}
+            else if (item.complexity ==1) { 
+              return (
+                <tr>
+                  <td key={item.station}>{item.station}</td>
+                  <td class="table-success" key={item.station}>{item.int_pred}</td>
+                  <td class="table-success" key={item.station}>{item.complexity}</td>
+                </tr>
+              );}
+        })}
+            
           </tbody>
         </table>
       </div>
