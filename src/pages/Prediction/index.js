@@ -118,7 +118,7 @@ function Prediction() {
         </MKBox>
       </MKBox>
       <div class="alert alert-light" role="alert">
-        <h4>7612버스의 혼잡도 예측 결과</h4>
+        <h4>{bus}버스의 혼잡도 예측 결과</h4>
       </div>
       <div class="container-fluid">
         <table class="table table-hover">
