@@ -95,7 +95,7 @@ function Prediction() {
                 },
               })}
             >
-              버스 혼잡율 예측 서비스는 예측을 원하는 날짜로부터 7일 후까지의 버스 혼잡율을 예측해주는 서비스 입니다.{" "}
+             버스 혼잡율 예측 서비스{" "}
             </MKTypography>
               <form>
                 <div class="row">
