@@ -22,23 +22,38 @@ import { useState, useEffect } from 'react';
 function Prediction() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
+  const [bus, setBus] = useState();
+  const [date, setDate] = useState();
+  const [time, setTime] = useState();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get(
-          `http://localhost/prediction/7612/20220420/15`)
-            setData(response.data.result);
-            console.log(data);
-      } catch (e) {
-      }
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+  const onChangeBus = (e) => {
+    setBus(e.target.value);
+  };
+
+  const onChangeDate = (e) => {
+    setDate(e.target.value);
+  };
+
+  const onChangeTime = (e) => {
+    setTime(e.target.value);
+  };
+
+
+  const fetchData = async ()=> {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `http://localhost/prediction/${bus}/${date.toString()}/${time}`)
+          setData(response.data.result);
+          console.log(data);
+    } catch (e) {
+    }
+    setLoading(false);
+  };
+
 
   if (loading) return <div>로딩중..</div>;
+  if (!data) return <div>잘못된 검색입니다</div>;
   return (
     <>
       <DefaultNavbar routes={routes} transparent light />
@@ -85,13 +100,16 @@ function Prediction() {
               <form>
                 <div class="row">
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="노선" />
+                    <input type="text" class="form-control" onChange={onChangeBus} value={bus} placeholder="노선" />
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" placeholder="날짜" />
+                    <input type="date" class="form-control" onChange={onChangeDate} value={date} placeholder="날짜" />
                   </div>
                   <div class="col">
-                  <button type="submit" class="btn btn-light">검색</button>
+                    <input type="text" class="form-control" onChange={onChangeTime} value={time} placeholder="시간" />
+                  </div>
+                  <div class="col">
+                  <button type="submit" class="btn btn-light" onClick={fetchData}>검색</button>
                   </div>
                 </div>
               </form>
@@ -116,7 +134,7 @@ function Prediction() {
             if(item.complexity ==3) { 
           return (
             <tr>
-              <td key={item.station}>{item.station}</td>
+              <td class="table-danger" key={item.station}>{item.station}</td>
               <td class="table-danger" key={item.station}>{item.int_pred}</td>
               <td class="table-danger" key={item.station}>{item.complexity}</td>
             </tr>
@@ -124,7 +142,7 @@ function Prediction() {
           else if (item.complexity ==2) { 
             return (
               <tr>
-                <td key={item.station}>{item.station}</td>
+                <td class="table-warning" key={item.station}>{item.station}</td>
                 <td class="table-warning" key={item.station}>{item.int_pred}</td>
                 <td class="table-warning" key={item.station}>{item.complexity}</td>
               </tr>
@@ -132,7 +150,7 @@ function Prediction() {
             else if (item.complexity ==1) { 
               return (
                 <tr>
-                  <td key={item.station}>{item.station}</td>
+                  <td class="table-success" key={item.station}>{item.station}</td>
                   <td class="table-success" key={item.station}>{item.int_pred}</td>
                   <td class="table-success" key={item.station}>{item.complexity}</td>
                 </tr>
