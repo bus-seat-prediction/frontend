@@ -10,6 +10,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 // Material Kit 2 React themes
 import theme from "assets/theme";
 import Main from "layouts/pages/main";
+import Prediction from "layouts/pages/prediction";
 
 // Material Kit 2 React routes
 import routes from "routes";
@@ -43,6 +44,7 @@ export default function App() {
         {getRoutes(routes)}
         <Route path="/main" element={<Main />} />
         <Route path="*" element={<Navigate to="/main" />} />
+        <Route path="/prediction" element={<Prediction />} />
       </Routes>
     </ThemeProvider>
   );

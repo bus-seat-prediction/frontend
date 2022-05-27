@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -64,15 +65,16 @@ function Main() {
             >
               버스 혼잡율 예측 서비스{" "}
             </MKTypography>
-            <MKButton
-              size="large"
-              variant="outlined"
-              color="white"
-              sx={{ color: ({ palette: { white } }) => white.main }}
-              href="Prediction"
-            >
-              바로가기
-            </MKButton>
+            <Link to="/prediction">
+              <MKButton
+                size="large"
+                variant="outlined"
+                color="white"
+                sx={{ color: ({ palette: { white } }) => white.main }}
+                >
+                바로가기
+              </MKButton>
+            </Link>
             <br></br>
             <MKButton
               size="small"
