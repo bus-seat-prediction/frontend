@@ -104,14 +104,14 @@ function Prediction() {
               <form>
                 <div class="row">
                   <div class="col">
-                    <input type="text" class="form-control" onChange={onChangeBus} value={bus} placeholder="노선" />
+                    <input type="text" class="form-control" onChange={onChangeBus} value={bus} placeholder="노선 입력" />
                   </div>
                   <div class="col">
-                    <input type="date" class="form-control" onChange={onChangeDate} value={date} placeholder="날짜" />
+                    <input type="date" class="form-control" onChange={onChangeDate} value={date} placeholder="날짜 선택" />
                   </div>
                   <div class="col">
                     <select onChange={onChangeTime} value={time} class="form-control">
-                    <option>시간</option>
+                    <option>시간 선택</option>
                       {timeList.map((item) => (
                         <option value={item} key={item}>
                           {item}
