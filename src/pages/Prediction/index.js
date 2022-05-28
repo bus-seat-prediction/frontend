@@ -111,6 +111,7 @@ function Prediction() {
                   </div>
                   <div class="col">
                     <select onChange={onChangeTime} value={time} class="form-control">
+                    <option>시간</option>
                       {timeList.map((item) => (
                         <option value={item} key={item}>
                           {item}
