@@ -102,14 +102,19 @@ function Main() {
                   </MKBox>
                   <Divider sx={{ my: 0 }} />
                   <MKBox p={2}>
-                    <MKTypography variant="body2" color="secondary" fontWeight="regular">
+
+                  <MKTypography variant="body2" color="secondary" fontWeight="regular">
+                      <br />
                       편한 버스란, 버스 혼잡도를 예측해주는 서비스입니다. 저희 서비스는 사용자에게 해당 시간에 버스 안이 얼마나 혼잡할 지를 예측하여 제공합니다.
                       <br />
                       <br />
-                      버스를 이용할 때 대부분의 사람들은 버스가 혼잡해도 공간이 전혀 없지 않는 이상 탐승에 크게 문제가 되지 않습니다.&apos;
-                      그러나 노인, 임산부, 영유아동반자 등 교통 약자는 혼잡한 버스를 이용하는 것이 어렵습니다.&apos;이에 저희는 버스 혼잡에 취약한 
-                      교통약자가 이동할 때, 출발 시간 선택에 도움을 주기 위해 해당 서비스를 기획하게 되었습니다.
+                      버스를 이용할 때 대부분의 사람들은 버스가 혼잡해도 공간이 전혀 없지 않는 이상 탑승에 크게 문제가 되지 않습니다.
+                      &apos;그러나 노인, 임산부, 영유아 동반자 등의 교통 약자는 혼잡한 버스를 이용하는 것이 어렵습니다.&apos;
+                      이에 저희는 버스 혼잡에 취약한 교통약자가 이동할 때, 출발 시간 선택에 도움을 주기 위해 해당 서비스를 기획하게 되었습니다.
+                      <br />
+                      <br />
                     </MKTypography>
+                    
                   </MKBox>
                   <Divider sx={{ my: 0 }} />
                 </MKBox>
