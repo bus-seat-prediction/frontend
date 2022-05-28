@@ -112,11 +112,6 @@ function Main() {
                     </MKTypography>
                   </MKBox>
                   <Divider sx={{ my: 0 }} />
-                  <MKBox display="flex" justifyContent="space-between" p={1.5}>
-                    <MKButton variant="gradient" color="dark" onClick={toggleModal}>
-                      close
-                    </MKButton>
-                  </MKBox>
                 </MKBox>
               </Slide>
             </Modal>
