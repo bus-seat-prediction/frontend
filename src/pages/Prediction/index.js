@@ -26,6 +26,10 @@ function Prediction() {
   const [date, setDate] = useState();
   const [time, setTime] = useState();
 
+  //시간 list
+  const timeList = ["0", "1", "2", "3", "4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"];
+
+
   const onChangeBus = (e) => {
     setBus(e.target.value);
   };
@@ -106,7 +110,13 @@ function Prediction() {
                     <input type="date" class="form-control" onChange={onChangeDate} value={date} placeholder="날짜" />
                   </div>
                   <div class="col">
-                    <input type="text" class="form-control" onChange={onChangeTime} value={time} placeholder="시간" />
+                    <select onChange={onChangeTime} value={time} class="form-control">
+                      {timeList.map((item) => (
+                        <option value={item} key={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                   <div class="col">
                   <button type="submit" class="btn btn-light" onClick={fetchData}>검색</button>
