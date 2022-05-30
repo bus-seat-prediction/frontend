@@ -150,25 +150,25 @@ function Prediction() {
             if(item.complexity ==3) { 
           return (
             <tr>
-              <td class="table-danger" key={item.station}>{item.station}</td>
-              <td class="table-danger" key={item.station}>{item.int_pred}</td>
-              <td class="table-danger" key={item.station}>{item.complexity}</td>
+              <td class="table-danger" key={item.station+"3station"}>{item.station}</td>
+              <td class="table-danger" key={item.station+"3num"}>{item.int_pred}</td>
+              <td class="table-danger" key={item.station+"3state"}>혼잡</td>
             </tr>
           );}
           else if (item.complexity ==2) { 
             return (
               <tr>
-                <td class="table-warning" key={item.station}>{item.station}</td>
-                <td class="table-warning" key={item.station}>{item.int_pred}</td>
-                <td class="table-warning" key={item.station}>{item.complexity}</td>
+                <td class="table-warning" key={item.station+"2station"}>{item.station}</td>
+                <td class="table-warning" key={item.station+"2num"}>{item.int_pred}</td>
+                <td class="table-warning" key={item.station+"2state"}>보통</td>
               </tr>
             );}
             else if (item.complexity ==1) { 
               return (
                 <tr>
-                  <td class="table-success" key={item.station}>{item.station}</td>
-                  <td class="table-success" key={item.station}>{item.int_pred}</td>
-                  <td class="table-success" key={item.station}>{item.complexity}</td>
+                  <td class="table-success" key={item.station+"1station"}>{item.station}</td>
+                  <td class="table-success" key={item.station+"1num"}>{item.int_pred}</td>
+                  <td class="table-success" key={item.station+"1state"}>여유</td>
                 </tr>
               );}
         })}
