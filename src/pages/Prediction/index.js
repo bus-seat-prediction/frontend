@@ -48,6 +48,9 @@ function Prediction() {
     setTime(e.target.value);
   };
 
+  const onFocusDate = (e) => {
+    e.target.type='date';
+  };
 
   const fetchData = async ()=> {
     try {
@@ -113,7 +116,7 @@ function Prediction() {
                     <input type="text" class="form-control" onChange={onChangeBus} value={bus} placeholder="노선 입력" />
                   </div>
                   <div class="col">
-                    <input type="date" class="form-control" onChange={onChangeDate} value={date} data-placeholder="날짜 선택" />
+                    <input type="text" class="form-control" onChange={onChangeDate} value={date} placeholder="날짜 선택" onFocus={onFocusDate} />
                   </div>
                   <div class="col">
                     <select onChange={onChangeTime} value={time} class="form-control">
