@@ -52,7 +52,7 @@ function Prediction() {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost/prediction/${bus}/${date.toString()}/${time}`)
+        `http://107.22.134.50:5000/prediction/${bus}/${date.toString()}/${time}`)
           setData(response.data.result);
           console.log(data);
     } catch (e) {
@@ -62,7 +62,7 @@ function Prediction() {
 
 
   if (loading) return <div>로딩중..</div>;
-  if (!data) return <div>잘못된 검색입니다</div>;
+  if (!data) return <div>잘못된 검색이거나 제공하지 않는 버스입니다!</div>;
   return (
     <>
       <DefaultNavbar routes={routes} transparent light />
