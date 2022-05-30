@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
+import MKDatePicker from "components/MKDatePicker";
 
 // Material Kit 2 React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
@@ -104,7 +105,7 @@ function Prediction() {
                 },
               })}
             >
-             버스 혼잡율 예측 서비스{" "}
+             서울 버스 혼잡율 예측 서비스{" "}
             </MKTypography>
               <form>
                 <div class="row">
@@ -112,7 +113,7 @@ function Prediction() {
                     <input type="text" class="form-control" onChange={onChangeBus} value={bus} placeholder="노선 입력" />
                   </div>
                   <div class="col">
-                    <input type="date" class="form-control" onChange={onChangeDate} value={date} placeholder="날짜 선택" />
+                    <input type="date" class="form-control" onChange={onChangeDate} value={date} data-placeholder="날짜 선택" />
                   </div>
                   <div class="col">
                     <select onChange={onChangeTime} value={time} class="form-control">
