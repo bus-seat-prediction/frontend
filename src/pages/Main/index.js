@@ -63,7 +63,7 @@ function Main() {
                 },
               })}
             >
-              서울 버스 혼잡율 예측 서비스{" "}
+              서울 버스 혼잡도 예측 서비스{" "}
             </MKTypography>
             <Link to="/prediction">
               <MKButton
