@@ -57,8 +57,8 @@ function Prediction() {
         setLoading(true);
         setData([]);
         const response = await axios.get(
-          `http://localhost:5000/prediction/${bus}/${date.toString()}/${time}`)
-          //`http://107.22.134.50:5000/prediction/${bus}/${date.toString()}/${time}`)
+          // `http://localhost:5000/prediction/${bus}/${date.toString()}/${time}`)
+          `http://3.86.52.76:5000/prediction/${bus}/${date.toString()}/${time}`)
             setData(response.data.result);
             console.log(data);
       } catch (e) {
